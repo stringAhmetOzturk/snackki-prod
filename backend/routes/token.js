@@ -2,7 +2,7 @@ import express from "express"
 import {db} from "../connect.js"
 const router = express.Router()
 
-router.post("/verify-token", async (req,res) => {
+router.post("/", async (req,res) => {
     try{
         let token = req.body;
         let response = await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.CAPTCHA_SECRET_KEY}&response=${token}`);

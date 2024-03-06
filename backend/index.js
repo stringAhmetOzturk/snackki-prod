@@ -84,14 +84,16 @@ app.use(cors(corsOptions))
 app.use(express.json())
 app.use(cookieParser())
 app.use("/api/images",express.static("uploads"))
-app.use(express.static(path.resolve(__dirname, 'build')));
+// app.use(express.static(path.resolve(__dirname, 'build')));
 // app.get('*', (req, res) => {
 //     res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 //   });
+
+// app.get('/api/hello', (req, res) => {		// Debug Hello World
+// 	res.send({"message":'Hello World!',"data":{"first":"First","second":"Second"}});
+//   })
+
 if (process.env.VERBOSEDEBUG) console.log("Initializing Routes");
-app.get('/api/hello', (req, res) => {		// Debug Hello World
-	res.send({"message":'Hello World!',"data":{"first":"First","second":"Second"}});
-  })
 //api token validation
 app.use(validateToken)
 app.use("/api/login", loginRoute)
@@ -99,7 +101,7 @@ app.use("/api/foryou", foryouRoute)
 app.use("/api/products",productRoute)
 app.use("/api/users", userRoute)
 app.use("/api/orders", orderRoute)
-app.use("/verify-token", tokenRoute)
+app.use("/api/verify-token", tokenRoute)
 //verifyJWT
 app.use(verifyJWT)
 
