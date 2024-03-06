@@ -99,7 +99,7 @@ app.use("/api/foryou", foryouRoute)
 app.use("/api/products",productRoute)
 app.use("/api/users", userRoute)
 app.use("/api/orders", orderRoute)
-
+app.use("/verify-token", tokenRoute)
 //verifyJWT
 app.use(verifyJWT)
 
@@ -112,7 +112,7 @@ app.use("/api/periods", periodRoute)
 app.use("/api/categories", categoryRoute)
 app.use("/api/subcategories", subcategoryRoute)
 app.use("/api/payments", paymentRoute)
-app.use("/verify-token", tokenRoute)
+
 
 
 if (process.env.VERBOSEDEBUG) console.log("Routes initialized");
