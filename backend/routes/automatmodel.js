@@ -3,7 +3,7 @@ import {db} from "../connect.js"
 const router = express.Router()
 
 router.get("/",(req,res)=>{
-    const q = "SELECT automatmodels.id,automatModels.automatBrand,automatmodels.automatModelName,automatbrands.brandName AS brandName FROM automatmodels INNER JOIN automatbrands ON automatbrands.id = automatmodels.automatBrand"
+    const q = "SELECT automatmodels.id,automatmodels.automatBrand,automatmodels.automatModelName,automatbrands.brandName AS brandName FROM automatmodels INNER JOIN automatbrands ON automatbrands.id = automatmodels.automatBrand"
     db.query(q,(error,data)=>{
         if (error) {
             return res.json(error)

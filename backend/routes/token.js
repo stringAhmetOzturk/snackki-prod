@@ -4,7 +4,7 @@ const router = express.Router()
 
 router.post("/", async (req,res) => {
     try{
-        let token = req.body;
+        let token = req.body.token
         let response = await axios.post(`https://www.google.com/recaptcha/api/siteverify?secret=${process.env.CAPTCHA_SECRET_KEY}&response=${token}`);
         return res.status(200).json({
             success:true,

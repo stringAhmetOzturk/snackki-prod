@@ -91,9 +91,9 @@ router.post("/", upload.single("automatDocument"), (req,res) => {
             const userQ = "INSERT INTO userautomats (`userId`,`automatId`,`automatFilterId`,`periodId`,`filterChangedDate`) VALUES (?)"
             db.query(userQ, [values], (error, data) => {
                 if (error) {
-                    return res.json(error);
+                    return res.status(500).json(error);
                 } else {
-                    return res.json(data);
+                    return res.status(200).json({status:200});
                 }
             });
         }
